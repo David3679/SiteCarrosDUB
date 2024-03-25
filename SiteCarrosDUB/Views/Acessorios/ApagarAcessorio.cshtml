@@ -1,0 +1,18 @@
+﻿@model AcessoriosModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <main>
+        <h1>Realmente deseja apagar a peça (@Model.NomeDaPeca)?</h1>
+        <nav class="botao-adicionar2">
+            <a class="btn btn-primary" asp-action="Apagar" asp-controller="Acessorios" asp-route-id="@Model.Id" role="button">Confirmar</a>
+            <a class="btn btn-danger" asp-action="Index" asp-controller="Acessorios" role="button">Cancelar</a>
+        </nav>
+    </main>
+</body>
+</html>

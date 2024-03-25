@@ -1,0 +1,54 @@
+﻿@using SiteCarrosDUB.Enuns
+@model UsuariosModel
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <main>
+        <h1>Cadastro de Usuários</h1>
+        <form asp-controller="Usuarios" asp-action="Criar" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" asp-for="Nome" placeholder="Digite o nome do contato">
+                @Html.ValidationMessageFor(x => x.Nome)
+            </div>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" asp-for="Login" placeholder="Digite o login do contato">
+                @Html.ValidationMessageFor(x => x.Login)
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" asp-for="Email" placeholder="Digite o e-mail do contato">
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="form-group">
+                <label for="perfil">Perfil</label>
+                <select asp-for="Perfil" class="form-control">
+                    <option value="">Selecione</option>
+                    <option value="@PerfilEnum.Admin">Administrador</option>
+                    <option value="@PerfilEnum.Padrao">Padrão</option>
+                </select>
+                @Html.ValidationMessageFor(x => x.Perfil)
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" asp-for="Senha" placeholder="Digite o senha do contato">
+                @Html.ValidationMessageFor(x => x.Senha)
+            </div>
+            <br />
+            <nav class="botoes1">
+                <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+                <a class="btn btn-danger btn-block" asp-controller="Usuarios" asp-action="Index" role="button">Voltar</a>
+            </nav>
+        </form>
+    </main>
+</body>
+</html>

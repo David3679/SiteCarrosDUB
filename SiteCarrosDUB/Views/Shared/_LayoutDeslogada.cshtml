@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SiteCarrosDUB.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
+</head>
+<body>
+    <header>
+        <img class="logo" src="/css/LogoDUB4.png" alt="abb" />  
+    </header>
+            @RenderBody()
+    <footer>
+        <nav>
+            &copy; 2024 - CarrosDUB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Sobre Nós</a>
+        </nav>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <scrip src="~/js/site.js" asp-append-version="true"></scrip>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

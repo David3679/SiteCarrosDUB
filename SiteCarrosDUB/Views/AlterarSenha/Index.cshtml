@@ -1,0 +1,53 @@
+﻿@model AlterarSenhaModel
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <main>
+        @if (TempData["MensagemSucesso"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+                @TempData["MensagemSucesso"]
+            </div>
+        }
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+                @TempData["MensagemErro"]
+            </div>
+        }
+        <h1>Alterar Senha</h1>
+        <form asp-controller="AlterarSenha" asp-action="Alterar" method="post">
+            <div class="form-group">
+                <label for="senhaAtual">Senha atual</label>
+                <input type="password" class="form-control" asp-for="SenhaAtual" placeholder="Informe sua senha atual">
+                @Html.ValidationMessageFor(x => x.SenhaAtual)
+            </div>
+            <div class="form-group">
+                <label for="novaSenha">Nova Senha</label>
+                <input type="password" class="form-control" asp-for="NovaSenha" placeholder="Informe a sua nova senha">
+                @Html.ValidationMessageFor(x => x.NovaSenha)
+            </div>
+            <div class="form-group">
+                <label for="confirmarSenha">Confirme a senha</label>
+                <input type="password" class="form-control" asp-for="ConfirmarSenha" placeholder="Confirme sua nova senha">
+                @Html.ValidationMessageFor(x => x.ConfirmarSenha)
+            </div>
+            <br />
+            <nav class="botoes1">
+                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Index" role="button">Cancelar</a>
+            </nav>
+        </form>
+    </main>
+</body>
+</html>

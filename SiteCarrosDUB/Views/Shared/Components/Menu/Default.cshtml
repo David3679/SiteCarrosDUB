@@ -1,0 +1,35 @@
+﻿@model UsuariosModel
+@{
+    string saudacao = Model.Nome != null ? "Olá, " + Model.Nome : "Olá, seja bem vindo!";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <header>
+        <img class="logo" src="/css/LogoDUB4.png" alt="abb" />
+        <nav class="cabecalho">
+            <a class="text-cabecalho" asp-controller="Home" asp-action="Index">Início</a>
+            <a class="text-cabecalho" asp-controller="Home" asp-action="Privacy">Sobre Nós</a>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn">@saudacao</button>
+            <div class="dropdown-content">
+                @if (Model.Perfil == SiteCarrosDUB.Enuns.PerfilEnum.Admin)
+                {
+                    <a class="text-cabecalho" asp-controller="Acessorios" asp-action="Index">Peças</a>
+                    <a class="text-cabecalho" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                }
+            <a class="text-cabecalho" asp-controller="AlterarSenha" asp-action="Index">Alterar Senha</a>
+            <a class="text-cabecalho" asp-controller="Login" asp-action="Sair">Sair</a>
+        </div>
+        </div>
+    </header>
+</body>
+</html>
+
+

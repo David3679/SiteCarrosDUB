@@ -1,0 +1,49 @@
+﻿@using SiteCarrosDUB.Enuns
+@model UsuariosModel
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <main>
+        <h1>Edição de Usuários</h1>
+        <form asp-controller="Usuarios" asp-action="Editar" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" asp-for="Nome" placeholder="Digite o nome do contato">
+                @Html.ValidationMessageFor(x => x.Nome)
+            </div>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" asp-for="Login" placeholder="Digite o login do contato">
+                @Html.ValidationMessageFor(x => x.Login)
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" asp-for="Email" placeholder="Digite o e-mail do contato">
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="form-group">
+                <label for="perfil">Perfil</label>
+                <select asp-for="Perfil" class="form-control">
+                    <option value="0">Selecione</option>
+                    <option value="@PerfilEnum.Admin">Administrador</option>
+                    <option value="@PerfilEnum.Padrao">Padrão</option>
+                </select>
+                @Html.ValidationMessageFor(x => x.Perfil)
+            </div>
+            <br />
+            <nav class="botoes1">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <a class="btn btn-danger" style="margin-left:5px" asp-controller="Usuarios" asp-action="Index" role="button">Cancelar</a>
+            </nav>
+        </form>
+    </main>
+</body>
+</html>

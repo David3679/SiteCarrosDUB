@@ -1,0 +1,40 @@
+﻿@model AcessoriosModel
+@{
+
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <main>
+        <h1>Editar Cadastro das Peças</h1>
+        <form asp-controller="Acessorios" asp-action="Editar" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label for="nomedapeca">Nome da Peça</label>
+                <input type="text" asp-for="NomeDaPeca" class="form-control" placeholder="Digite o nome que deseja para alterar">
+                @Html.ValidationMessageFor(x => x.NomeDaPeca)
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca da Peça</label>
+                <input type="text" asp-for="Marca" class="form-control" placeholder="Digite o nome da marca que deseja para alterar">
+                @Html.ValidationMessageFor(x => x.Marca)
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor da Peça</label>
+                <input type="text" asp-for="Valor" class="form-control" placeholder="Digite o valor que deseja para alterar">
+                @Html.ValidationMessageFor(x => x.Valor)
+            </div>
+            <br />
+            <nav class="botoes1">
+                <button type="submit" class="btn btn-primary btn-block">Editar</button>
+                <a class="btn btn-danger" asp-controller="Acessorios" asp-action="Index" role="button">Cancelar</a>
+            </nav>
+        </form>
+    </main>
+</body>
+</html>
